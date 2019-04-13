@@ -7,8 +7,8 @@ CREATE TABLE members (
   id SERIAL PRIMARY KEY,
   first_name VARCHAR,
   last_name VARCHAR,
-  membership_type VARCHAR,
-  membership_number INT--,
+  membership_type VARCHAR--,
+  -- membership_number INT--,
   -- membership_start_date DATE,
   -- membership_renewal DATE
   );
