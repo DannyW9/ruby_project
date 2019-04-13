@@ -1,8 +1,10 @@
 require ('pry-byebug')
 require_relative('../models/member.rb')
 require_relative('../models/gym_class.rb')
+require_relative('../models/session.rb')
 
 Member.delete_all()
+GymClass.delete_all()
 
 ################# MEMBERS #################
 
@@ -48,7 +50,51 @@ class1 = GymClass.new({
 
 class1.save()
 
+class2 = GymClass.new({
+  'name' => 'Bootcamp',
+  'description' => 'This circuit training based class is designed to challenge your body and mind in a fun environment, all the while building strength and fitness through a variety of exercise stations.',
+  'instructor' => 'Private Ryan'
+  })
+
+class2.save()
+
+class3 = GymClass.new({
+  'name' => 'Spin CLass',
+  'description' => 'A fun, heart-pumping workout on a beautiful Star Trac spin bike. Ride on the flats, up hills, through rolling hills led by a certified instructor motivated by great music.',
+  'instructor' => 'Lance Armstrong'
+  })
+
+class3.save()
+
 ################ SESSIONS #################
+
+session1 = Session.new({
+  'class_time' => '09:00',
+  'max_capactiy' => '10'
+  })
+
+session1.save()
+
+session2 = Session.new({
+  'class_time' => '12:00',
+  'max_capactiy' => '10'
+  })
+
+session2.save()
+
+session3 = Session.new({
+  'class_time' => '16:00',
+  'max_capactiy' => '12'
+  })
+
+session3.save()
+
+session4 = Session.new({
+  'class_time' => '19:00',
+  'max_capactiy' => '15'
+  })
+
+session4.save()
 
 ################ RESERVATIONS #################
 

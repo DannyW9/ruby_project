@@ -23,7 +23,6 @@ CREATE TABLE classes (
 CREATE TABLE sessions (
   id SERIAL PRIMARY KEY,
   class_time TIME,
-  class_name VARCHAR,
   max_capactiy INT
   );
 
