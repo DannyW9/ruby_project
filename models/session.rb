@@ -3,19 +3,19 @@ require_relative('../db/sql_runner.rb')
 class Session
 
   attr_reader :id
-  attr_accessor :class_time, :max_capactiy
+  attr_accessor :class_time, :max_capacity
 
   def initialize(details)
     @id = details['id'].to_i if details['id']
     @class_time = details['class_time']
-    @max_capactiy = details['max_capactiy'].to_i
+    @max_capacity = details['max_capacity'].to_i
   end
 
   def save()
-    sql = "INSERT INTO sessions (class_time, max_capactiy)
+    sql = "INSERT INTO sessions (class_time, max_capacity)
           VALUES ($1, $2)
           RETURNING id"
-    values = [@class_time, @max_capactiy]
+    values = [@class_time, @max_capacity]
     session = SqlRunner.run(sql, values)
     @id = session[0]['id'].to_i
   end
@@ -52,10 +52,10 @@ class Session
 
   def update()
     sql = "UPDATE sessions
-    SET (class_time, max_capactiy)
+    SET (class_time, max_capacity)
     = ($1, $2)
     WHERE id = $3"
-    values = [@class_time, @max_capactiy, @id]
+    values = [@class_time, @max_capacity, @id]
     SqlRunner.run(sql, values)
   end
 

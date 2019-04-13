@@ -23,7 +23,7 @@ CREATE TABLE classes (
 CREATE TABLE sessions (
   id SERIAL PRIMARY KEY,
   class_time TIME,
-  max_capactiy INT
+  max_capacity INT
   );
 
 CREATE TABLE reservations (
