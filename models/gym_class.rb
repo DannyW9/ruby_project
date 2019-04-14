@@ -62,6 +62,27 @@ class GymClass
     SqlRunner.run(sql, values)
   end
 
+  def members()
+    sql = "SELECT members.* FROM members
+    INNER JOIN reservations ON reservations.member_id = members.id
+    WHERE reservations.gym_class_id = $1"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results.map { |member| Member.new(member) }
+  end
+
+  def reservations
+    sql = "SELECT * FROM reservations WHERE reservations.gym_class_id = $1"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results.map { |reservation| Reservation.new(reservation) }
+  end
+
+  def remove_reservations()
+    sql = "DELETE FROM reservations WHERE reservations.gym_class_id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
 
 
 

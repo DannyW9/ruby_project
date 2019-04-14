@@ -1,0 +1,14 @@
+<h1>Classes</h1>
+
+<% @classes.each do |gym_class| %>
+<div class="class_div">
+  <h3><%= gym_class.name %></h3>
+  <p>Class Start Time: <%= gym_class.class_time %></p>
+
+  <form action="/classes/<%= gym_class.id %>" method="get">
+    <input type="submit" value="View More Details">
+  </form>
+
+</div>
+<hr>
+<% end %>
