@@ -33,5 +33,11 @@ end
 get '/members/:id/edit' do
   id = params[:id]
   @member = Member.find_by_id(id)
-  erb(:edit)
+  erb(:"members/edit")
+end
+
+post '/members/:id' do
+  @member = Member.new(params)
+  @member.update()
+  redirect '/members'
 end

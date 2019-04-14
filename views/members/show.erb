@@ -9,3 +9,7 @@
   <li><%= gym_class.name %> -> <%= gym_class.class_time %></li>
   <% end %>
 </ul>
+
+<form action="/members/<%= @member.id %>/edit" method="get">
+  <input type="submit" value="Update Member Details">
+</form>

@@ -1,0 +1,31 @@
+<div class="edit_member_form">
+<form action="/members/<%= @member.id %>" method="POST">
+
+  <div class="first_name">
+    <label for="first-name">Change First Name:</label>
+    <input type="text" name="first_name" id="first-name" value="<%= @member.first_name %>">
+  </div>
+
+  <div class="last_name">
+    <label for="last-name">Change Last Name:</label>
+    <input type="text" name="last_name" id="last-name" value="<%= @member.last_name %>">
+  </div>
+
+  <div class="membership_type">
+    <label for="membership-type">Change membership type:</label>
+    <input type="radio" name="membership_type" id="membership-type" value="Regular"> Regular
+    <input type="radio" name="membership_type" id="membership-type" value="Premium"> Premium
+  </div>
+
+  <div class="submit">
+    <input type="submit" value="Update Member Details">
+  </div>
+
+</form>
+
+
+
+
+
+
+</div>
