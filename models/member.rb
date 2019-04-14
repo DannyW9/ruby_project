@@ -77,6 +77,19 @@ class Member
     return results.map { |gym_class| GymClass.new(gym_class) }
   end
 
+  def reservations
+    sql = "SELECT * FROM reservations WHERE reservations.member_id = $1"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results.map { |reservation| Reservation.new(reservation) }
+  end
+
+  def remove_reservations()
+    sql = "DELETE FROM reservations WHERE reservations.member_id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
 
 
 end

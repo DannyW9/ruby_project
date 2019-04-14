@@ -4,6 +4,15 @@
  <div class="member_div">
    <h3> <%= member.full_name() %></h3>
    <p> Membership Type: <%= member.membership_type %> </p>
+
+   <form action="/members/<%= member.id %>" method="get">
+     <input type="submit" value="View More Details">
+   </form>
+
+   <form action="/members/<%= member.id %>/delete" method="post">
+     <input type="submit" value="Remove Member">
+   </form>
+   
  </div>
  <hr>
  <% end %>
