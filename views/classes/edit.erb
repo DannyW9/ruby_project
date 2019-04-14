@@ -1,0 +1,33 @@
+<div class="edit_class_form">
+  <form action="/classes/<%= @class.id %>" method="POST">
+
+    <div class="name">
+      <label for="name">Change Class Name:</label>
+      <input type="text" name="name" id="name" value="<%= @class.name %>">
+    </div>
+
+    <div class="description">
+      <label for="description">Change Description:</label>
+      <textarea id="description" name="description" rows="8" cols="80"><%= @class.description %></textarea>
+    </div>
+
+    <div class="instructor">
+      <label for="instructor">Change Instructor:</label>
+      <input type="text" name="instructor" id="instructor" value="<%= @class.instructor %>">
+    </div>
+
+    <div class="max_capacity">
+      <label for="max-capacity">Change Maximum Capacity:</label>
+      <input type="number" name="max_capacity" id="max-capacity" value="<%= @class.max_capacity %>">
+    </div>
+
+    <div class="class_time">
+      <label for="class-time">Change Time Slot:</label>
+      <input type="time" name="class_time" value="<%= @class.class_time %>">
+
+    </div>
+
+    <input type="submit" value="Create New Class">
+
+  </form>
+</div>
