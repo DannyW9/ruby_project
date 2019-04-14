@@ -13,6 +13,25 @@ get '/classes/new' do
 end
 
 get '/classes/:id' do
-@class = GymClass.find_by_id(params[:id].to_i)
-erb (:"classes/show")
+  @class = GymClass.find_by_id(params[:id].to_i)
+  erb (:"classes/show")
+end
+
+post '/classes' do
+  @class = GymClass.new(params)
+  @class.save()
+  redirect '/classes'
+end
+
+post '/classes/:id/delete' do
+  id = params[:id]
+  GymClass.find_by_id(id).remove_reservations()
+  GymClass.delete(id)
+  redirect '/classes'
+end
+
+get '/classes/:id/edit' do
+  id = params[:id]
+  @class = GymClass.find_by_id(id)
+  erb(:"classes/edit")
 end

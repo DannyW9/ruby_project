@@ -1,0 +1,46 @@
+<div class="new_class_form">
+  <form action="/classes" method="POST">
+
+    <div class="name">
+      <label for="name">Class Name:</label>
+      <input type="text" name="name" id="name">
+    </div>
+
+    <div class="description">
+      <label for="description">Description:</label>
+      <input type="text" name="description" id="description">
+    </div>
+
+    <div class="instructor">
+      <label for="instructor">Instructor:</label>
+      <input type="text" name="instructor" id="instructor">
+    </div>
+
+    <div class="max_capacity">
+      <label for="max-capacity">Maximum Capacity:</label>
+      <input type="number" name="max_capacity" id="max-capacity">
+    </div>
+
+    <div class="class_time">
+      <label for="class-time">Select a Time Slot:</label>
+      <select id="class-time" name="class_time">
+        <option value="" selected>Select a Time</option>
+        <option value="09:00">09:00</option>
+        <option value="10:00">10:00</option>
+        <option value="11:00">11:00</option>
+        <option value="12:00">12:00</option>
+        <option value="13:00">13:00</option>
+        <option value="14:00">14:00</option>
+        <option value="15:00">15:00</option>
+        <option value="16:00">16:00</option>
+        <option value="17:00">17:00</option>
+        <option value="18:00">18:00</option>
+        <option value="19:00">19:00</option>
+        <option value="20:00">20:00</option>
+      </select>
+    </div>
+
+    <input type="submit" value="Create New Class">
+
+  </form>
+</div>
