@@ -1,0 +1,9 @@
+<h1>Members</h1>
+
+ <% @members.each do |member| %>
+ <div class="member_div">
+   <h3> <%= member.full_name() %></h3>
+   <p> Membership Type: <%= member.membership_type %> </p>
+ </div>
+ <hr>
+ <% end %>

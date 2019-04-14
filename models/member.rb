@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner.rb')
+require_relative('gym_class.rb')
 
 class Member
 
@@ -65,6 +66,15 @@ class Member
     WHERE id = $4"
     values = [@first_name, @last_name, @membership_type, @id]
     SqlRunner.run(sql, values)
+  end
+
+  def attending_classes()
+    sql = "SELECT classes.* FROM classes
+    INNER JOIN reservations ON reservations.gym_class_id = classes.id
+    WHERE reservations.member_id = $1"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results.map { |gym_class| GymClass.new(gym_class) }
   end
 
 

@@ -48,7 +48,9 @@ member4.save()
 class1 = GymClass.new({
   'name' => 'Yoga',
   'description' => ' A restful, calming class including breathing, gentle flowing movements, passive and supported poses. This is a perfect beginning yoga class that is also appropriate for those working with injury, limited mobility, or who prefer a softer, gentler approach to yoga.',
-  'instructor' => 'Darth Vader'
+  'instructor' => 'Darth Vader',
+  'class_time' => '09:00',
+  'max_capacity' => '10'
   })
 
 class1.save()
@@ -56,79 +58,93 @@ class1.save()
 class2 = GymClass.new({
   'name' => 'Bootcamp',
   'description' => 'This circuit training based class is designed to challenge your body and mind in a fun environment, all the while building strength and fitness through a variety of exercise stations.',
-  'instructor' => 'Private Ryan'
+  'instructor' => 'Private Ryan',
+  'class_time' => '12:00',
+  'max_capacity' => '10'
   })
 
 class2.save()
 
 class3 = GymClass.new({
-  'name' => 'Spin CLass',
+  'name' => 'Spin Class',
   'description' => 'A fun, heart-pumping workout on a beautiful Star Trac spin bike. Ride on the flats, up hills, through rolling hills led by a certified instructor motivated by great music.',
-  'instructor' => 'Lance Armstrong'
-  })
-
-class3.save()
-
-################ SESSIONS #################
-
-session1 = Session.new({
-  'class_time' => '09:00',
-  'max_capacity' => '10'
-  })
-
-session1.save()
-
-session2 = Session.new({
-  'class_time' => '12:00',
-  'max_capacity' => '10'
-  })
-
-session2.save()
-
-session3 = Session.new({
+  'instructor' => 'Lance Armstrong',
   'class_time' => '16:00',
   'max_capacity' => '12'
   })
 
-session3.save()
+class3.save()
 
-session4 = Session.new({
+class4 = GymClass.new({
+  'name' => 'Yoga',
+  'description' => ' A restful, calming class including breathing, gentle flowing movements, passive and supported poses. This is a perfect beginning yoga class that is also appropriate for those working with injury, limited mobility, or who prefer a softer, gentler approach to yoga.',
+  'instructor' => 'Darth Vader',
   'class_time' => '19:00',
   'max_capacity' => '15'
   })
 
-session4.save()
+  class4.save()
+
+################ SESSIONS #################
+
+# session1 = Session.new({
+#   'class_time' => '09:00',
+#   'max_capacity' => '10'
+#   })
+#
+# session1.save()
+
+# session2 = Session.new({
+#   'class_time' => '12:00',
+#   'max_capacity' => '10'
+#   })
+#
+# session2.save()
+#
+# session3 = Session.new({
+#   'class_time' => '16:00',
+#   'max_capacity' => '12'
+#   })
+#
+# session3.save()
+#
+# session4 = Session.new({
+#   'class_time' => '19:00',
+#   'max_capacity' => '15'
+#   })
+#
+# session4.save()
 
 ################ RESERVATIONS #################
 
 reservation1 = Reservation.new({
   'member_id' => "#{member1.id}",
-  'gym_class_id' => "#{class1.id}",
-  'session_id' => "#{session1.id}"
+  'gym_class_id' => "#{class1.id}"#,
+  # 'session_id' => "#{session1.id}"
   })
 
 reservation1.save()
 
 reservation2 = Reservation.new({
   'member_id' => "#{member2.id}",
-  'gym_class_id' => "#{class2.id}",
-  'session_id' => "#{session2.id}"
+  'gym_class_id' => "#{class2.id}"#,
+  # 'session_id' => "#{session2.id}"
   })
 
 reservation2.save()
 
 reservation3 = Reservation.new({
   'member_id' => "#{member3.id}",
-  'gym_class_id' => "#{class3.id}",
-  'session_id' => "#{session3.id}"
+  'gym_class_id' => "#{class3.id}"#,
+  # 'session_id' => "#{session3.id}"
   })
 
 reservation3.save()
 
 reservation4 = Reservation.new({
   'member_id' => "#{member4.id}",
-  'gym_class_id' => "#{class3.id}",
-  'session_id' => "#{session4.id}"
+  'gym_class_id' => "#{class3.id}"#,
+  # 'session_id' => "#{session4.id}"
   })
 
 reservation4.save()

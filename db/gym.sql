@@ -17,7 +17,9 @@ CREATE TABLE classes (
   id SERIAL PRIMARY KEY,
   name VARCHAR,
   description TEXT,
-  instructor VARCHAR
+  instructor VARCHAR,
+  class_time TIME,
+  max_capacity INT
   );
 
 CREATE TABLE sessions (
@@ -29,6 +31,6 @@ CREATE TABLE sessions (
 CREATE TABLE reservations (
   id SERIAL PRIMARY KEY,
   member_id INT REFERENCES members(id),
-  gym_class_id INT REFERENCES classes(id),
-  session_id INT REFERENCES sessions(id)
+  gym_class_id INT REFERENCES classes(id)--,
+  -- session_id INT REFERENCES sessions(id)
 );

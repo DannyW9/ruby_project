@@ -1,0 +1,11 @@
+<h1><%= @member.full_name() %></h1>
+
+<p> Membership Type: <%= @member.membership_type %> </p>
+
+<h3>Classes attending:</h3>
+
+<ul>
+  <% @member.attending_classes.each do |gym_class| %>
+  <li><%= gym_class.name %> -> <%= gym_class.class_time %></li>
+  <% end %>
+</ul>

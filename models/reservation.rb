@@ -3,20 +3,20 @@ require_relative('../db/sql_runner.rb')
 class Reservation
 
   attr_reader :id
-  attr_accessor :member_id, :gym_class_id, :session_id
+  attr_accessor :member_id, :gym_class_id#, :session_id
 
   def initialize(details)
     @id = details['id'].to_i if details['id']
     @member_id = details['member_id'].to_i
     @gym_class_id = details['gym_class_id'].to_i
-    @session_id = details['session_id'].to_i
+    #@session_id = details['session_id'].to_i
   end
 
   def save()
-    sql = "INSERT INTO reservations (member_id, gym_class_id, session_id)
-          VALUES ($1, $2, $3)
+    sql = "INSERT INTO reservations (member_id, gym_class_id)
+          VALUES ($1, $2)
           RETURNING id"
-    values = [@member_id, @gym_class_id, @session_id]
+    values = [@member_id, @gym_class_id]
     reservation = SqlRunner.run(sql, values)
     @id = reservation[0]['id'].to_i
   end
@@ -53,10 +53,10 @@ class Reservation
 
   def update()
     sql = "UPDATE reservations
-    SET (member_id, gym_class_id, session_id)
-    = ($1, $2, $3)
-    WHERE id = $4"
-    values = [@member_id, @gym_class_id, @session_id, @id]
+    SET (member_id, gym_class_id)
+    = ($1, $2)
+    WHERE id = $3"
+    values = [@member_id, @gym_class_id, @id]
     SqlRunner.run(sql, values)
   end
 
