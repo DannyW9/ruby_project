@@ -12,3 +12,7 @@
   <li><%= member.full_name() %></li>
   <% end %>
 </ul>
+
+<form action="/classes/<%= @class.id%>/edit" method="get">
+  <input type="submit" value="Edit Class Details">
+</form>

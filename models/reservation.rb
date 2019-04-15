@@ -60,4 +60,19 @@ class Reservation
     SqlRunner.run(sql, values)
   end
 
+  def member()
+    sql = "SELECT * FROM members WHERE id = $1"
+    values = [@member_id]
+    results = SqlRunner.run(sql, values)[0]
+    return Member.new(results)
+  end
+
+  def gym_class()
+    sql = "SELECT * FROM classes WHERE id = $1"
+    values = [@gym_class_id]
+    results = SqlRunner.run(sql, values)[0]
+    return GymClass.new(results)
+  end
+
+  
 end

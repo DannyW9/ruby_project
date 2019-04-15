@@ -1,0 +1,7 @@
+<h1>Class Bookings</h1>
+
+<% @reservations.each do |reservation| %>
+
+<p>Class: <%= reservation.gym_class.name %></p>
+<p>Member: <%= reservation.member.full_name() %></p>
+<% end %>

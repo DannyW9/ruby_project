@@ -11,7 +11,7 @@ class Member
     @first_name = details['first_name']
     @last_name = details['last_name']
     @membership_type = details['membership_type']
-    # @membership_number = details['membership_number'].to_i if details['membership_number']
+    @membership_number = details['membership_number'].to_i if details['membership_number']
     # @membership_start_date = details['membership_start_date']
     # @membership_renewal_date = details['membership_renewal_date']
   end
@@ -23,10 +23,11 @@ class Member
   def save()
     sql = "INSERT INTO members (first_name, last_name, membership_type)
           VALUES ($1, $2, $3)
-          RETURNING id"
+          RETURNING id, membership_number"
     values = [@first_name, @last_name, @membership_type]
     result = SqlRunner.run(sql, values)
     @id = result[0]['id'].to_i
+    @membership_number = (@id + 10000).to_i
   end
 
   def self.all()

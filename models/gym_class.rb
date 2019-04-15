@@ -1,3 +1,4 @@
+require('time')
 require_relative('../db/sql_runner.rb')
 
 class GymClass
@@ -84,6 +85,12 @@ class GymClass
     SqlRunner.run(sql, values)
   end
 
+  def delete_by_id(id)
+    sql = "DELETE FROM reservations
+    WHERE reservations.gym_class_id = $1 AND reservations.member_id = $2"
+    values = [@id, id]
+    SqlRunner.run(sql, values)
+  end
 
 
 
