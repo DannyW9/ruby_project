@@ -12,7 +12,7 @@ class GymClass
     @description = details['description']
     @instructor = details['instructor']
     @class_time = details['class_time']
-    @max_capacity = details['max_capacity']
+    @max_capacity = details['max_capacity'].to_i
   end
 
   def save()
@@ -85,13 +85,25 @@ class GymClass
     SqlRunner.run(sql, values)
   end
 
-  def delete_by_id(id)
+  def delete_reservation_by_id(id)
     sql = "DELETE FROM reservations
     WHERE reservations.gym_class_id = $1 AND reservations.member_id = $2"
     values = [@id, id]
     SqlRunner.run(sql, values)
   end
 
+  def members_attending()
+    results = self.members()
+    return results.length().to_i
+  end
+
+  def capacity_check()
+    if self.members_attending() < self.max_capacity()
+      return true
+    else
+      return false
+    end
+  end
 
 
 

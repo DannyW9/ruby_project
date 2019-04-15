@@ -4,7 +4,7 @@
 <div class="class_div">
   <h3><%= gym_class.name %></h3>
   <p>Class Start Time: <%= gym_class.class_time %></p>
-  <p>Members attending:</p>
+  <p>Members attending (<%= gym_class.members_attending() %>/<%= gym_class.max_capacity %>):</p>
 
   <ul>
     <% gym_class.members.each do |member| %>
@@ -12,8 +12,6 @@
       <form action="/reservations/<%= gym_class.id %>/<%= member.id %>/delete" method="post">
         <input type="submit" value="Remove from Class">
       </form>
-
-
     </li>
     <% end %>
   </ul>
@@ -22,8 +20,8 @@
     <input type="submit" value="View More Details">
   </form>
 
-  <form action="/classes/<%= gym_class.id %>/delete" method="post">
-    <input type="submit" value="Remove Class">
+  <form action="/reservations/<%= gym_class.id %>/delete" method="post">
+    <input type="submit" value="Remove All Reservations">
   </form>
 
 </div>

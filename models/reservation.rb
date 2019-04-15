@@ -74,5 +74,12 @@ class Reservation
     return GymClass.new(results)
   end
 
-  
+  def capacity_check(gym_class)
+    if gym_class.members_attending() < gym_class.max_capacity()
+      return true
+    else
+      return false
+    end
+  end
+
 end

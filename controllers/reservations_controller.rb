@@ -22,9 +22,15 @@ post '/reservations' do
   redirect '/classes'
 end
 
+post '/reservations/:id/delete' do
+  id = params[:id]
+  GymClass.find_by_id(id).remove_reservations()
+  redirect '/classes'
+end
+
 post '/reservations/:class_id/:member_id/delete' do
   class_id = params[:class_id]
   member_id = params[:member_id]
-  GymClass.find_by_id(class_id).delete_by_id(member_id)
+  GymClass.find_by_id(class_id).delete_reservation_by_id(member_id)
   redirect '/classes'
 end

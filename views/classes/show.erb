@@ -16,3 +16,7 @@
 <form action="/classes/<%= @class.id%>/edit" method="get">
   <input type="submit" value="Edit Class Details">
 </form>
+
+<form action="/classes/<%= @class.id %>/delete" method="post">
+  <input type="submit" value="Remove Class">
+</form>
