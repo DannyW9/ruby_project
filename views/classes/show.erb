@@ -1,6 +1,6 @@
 <h1><%= @class.name %></h1>
 
-<p>Class Start Time: <%= @class.class_time %></p>
+<p>Class Start Time: <%= @class.class_time.slice(0..4) %></p>
 <p>Instructor: <%= @class.instructor %></p>
 <p>Description: <%= @class.description %></p>
 <p>Maximum Capacity: <%= @class.max_capacity %></p>

@@ -3,7 +3,7 @@
 <% @classes.each do |gym_class| %>
 <div class="class_div">
   <h3><%= gym_class.name %></h3>
-  <p>Class Start Time: <%= gym_class.class_time %></p>
+  <p>Class Start Time: <%= gym_class.class_time.slice(0..4) %></p>
   <p>Members attending (<%= gym_class.members_attending() %>/<%= gym_class.max_capacity %>):</p>
 
   <ul>

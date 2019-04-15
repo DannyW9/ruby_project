@@ -8,9 +8,9 @@
         <select name="gym_class_id" id="gym-class">
           <% @classes.each do |gym_class| %>
           <% if gym_class.capacity_check != false %>
-          <option value="<%= gym_class.id %>"><%= gym_class.name %> -> <%= gym_class.class_time %></option>
+          <option value="<%= gym_class.id %>"><%= gym_class.name %> -> <%= gym_class.class_time.slice(0..4) %></option>
           <% else %>
-          <option value="<%= gym_class.id %>" disabled><%= gym_class.name %> -> <%= gym_class.class_time %> - FULL!</option>
+          <option value="<%= gym_class.id %>" disabled><%= gym_class.name %> -> <%= gym_class.class_time.slice(0..4) %> - FULL!</option>
           <% end %>
           <% end %>
         </select>

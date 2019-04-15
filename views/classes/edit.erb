@@ -23,7 +23,7 @@
 
     <div class="class_time">
       <label for="class-time">Change Time Slot:</label>
-      <input type="time" name="class_time" value="<%= @class.class_time %>">
+      <input type="time" name="class_time" value="<%= @class.class_time.slice(0..4) %>">
 
     </div>
 
