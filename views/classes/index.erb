@@ -8,20 +8,12 @@
 
   <ul>
     <% gym_class.members.each do |member| %>
-    <li><a href="/members/<%= member.id %>"><%= member.full_name() %></a>
-      <form action="/reservations/<%= gym_class.id %>/<%= member.id %>/delete" method="post">
-        <input type="submit" value="Remove from Class">
-      </form>
-    </li>
+    <li><a href="/members/<%= member.id %>"><%= member.full_name() %></a></li>
     <% end %>
   </ul>
 
   <form action="/classes/<%= gym_class.id %>" method="get">
     <input type="submit" value="View More Details">
-  </form>
-
-  <form action="/reservations/<%= gym_class.id %>/delete" method="post">
-    <input type="submit" value="Remove All Reservations">
   </form>
 
 </div>

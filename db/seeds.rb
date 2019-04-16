@@ -49,7 +49,7 @@ class1 = GymClass.new({
   'name' => 'Morning Yoga',
   'description' => ' A restful, calming class including breathing, gentle flowing movements, passive and supported poses. This is a perfect beginning yoga class that is also appropriate for those working with injury, limited mobility, or who prefer a softer, gentler approach to yoga.',
   'instructor' => 'Darth Vader',
-  'class_time' => '09:00',
+  'class_time' => '09:00:00',
   'max_capacity' => '10'
   })
 

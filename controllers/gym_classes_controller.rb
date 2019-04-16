@@ -1,6 +1,8 @@
 require ('sinatra')
 require ('sinatra/contrib/all')
+require('pry')
 require_relative('../models/gym_class.rb')
+require_relative('../models/member.rb')
 also_reload('../models/*')
 
 get '/classes' do
@@ -14,6 +16,8 @@ end
 
 get '/classes/:id' do
   @class = GymClass.find_by_id(params[:id].to_i)
+  @members = Member.all()
+  @premium_members = Member.premium_members()
   erb (:"classes/show")
 end
 

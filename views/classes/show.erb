@@ -10,6 +10,8 @@
 <ul>
   <% @class.members.each do |member| %>
   <li><%= member.full_name() %></li>
+  <form action="/reservations/<%= @class.id %>/<%= member.id %>/delete" method="post">
+    <input type="submit" value="Remove from Class">
   <% end %>
 </ul>
 
@@ -17,6 +19,37 @@
   <input type="submit" value="Edit Class Details">
 </form>
 
+<form action="/reservations/<%= @class.id %>/delete" method="post">
+  <input type="submit" value="Remove All Reservations">
+</form>
+
 <form action="/classes/<%= @class.id %>/delete" method="post">
   <input type="submit" value="Remove Class">
+</form>
+
+<hr>
+
+<h2>Book Member into Class</h2>
+
+<form action="/reservations" method="post">
+<!--Hidden input for passing through gym_class_id into the reservation  -->
+<input type="hidden" name="gym_class_id" value="<%= @class.id %>">
+
+  <label for="member">Select a Member:</label>
+    <select name="member_id" id="member">
+
+      <% if @class.capacity_check == false %>
+        <option value="" selected disabled>This class is full!</option>
+        <% else %>
+
+      <% @class.available_members.each do |member| %>
+        <option value="<%= member.id %>"><%= member.full_name() %></option>
+        <% end %>
+        <% end %>
+    </select>
+
+    <div class="submit">
+      <input type="submit" value="Create new booking">
+    </div>
+
 </form>

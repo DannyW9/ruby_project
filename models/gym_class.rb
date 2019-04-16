@@ -72,6 +72,15 @@ class GymClass
     return results.map { |member| Member.new(member) }
   end
 
+  def premium_members()
+    sql = "SELECT members.* FROM members
+    INNER JOIN reservations on reservations.member_id = members.id
+    WHERE reservations.gym_class_id = $1 AND members.membership_type = $2"
+    values = [@id, "Premium"]
+    results = SqlRunner.run(sql, values)
+    return results.map { |member| Member.new(member) }
+  end
+
   def reservations
     sql = "SELECT * FROM reservations WHERE reservations.gym_class_id = $1"
     values = [@id]
@@ -92,6 +101,14 @@ class GymClass
     SqlRunner.run(sql, values)
   end
 
+  def peak_time()
+    if ["07:00:00", "08:00:00", "09:00:00", "17:00:00", "18:00:00", "19:00:00", "20:00:00"].include?(@class_time)
+      return true
+    else
+      return false
+    end
+  end
+
   def members_attending()
     results = self.members()
     return results.length().to_i
@@ -105,6 +122,25 @@ class GymClass
     end
   end
 
+  def all_available_members
+    sql = "SELECT * FROM members WHERE id NOT IN (SELECT member_id FROM reservations WHERE gym_class_id = $1)"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results.map { |member| Member.new(member) }
+  end
 
+  def available_premium_members()
+    sql = "SELECT * FROM members WHERE id NOT IN (SELECT member_id FROM reservations WHERE gym_class_id = $1) and membership_type = $2"
+    values = [@id, "Premium"]
+    results = SqlRunner.run(sql, values)
+    return results.map {|member| Member.new(member)}
+  end
 
+  def available_members()
+    if self.peak_time() == true
+      return self.available_premium_members
+    else
+      return self.all_available_members
+    end
+  end
 end

@@ -91,6 +91,11 @@ class Member
     SqlRunner.run(sql, values)
   end
 
-
+  def self.premium_members()
+    sql = "SELECT members.* FROM members WHERE members.membership_type = $1"
+    values = ["Premium"]
+    results = SqlRunner.run(sql, values)
+    return results.map { |member| Member.new(member) }
+  end
 
 end
