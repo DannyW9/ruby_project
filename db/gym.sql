@@ -9,8 +9,6 @@ CREATE TABLE members (
   last_name VARCHAR,
   membership_type VARCHAR,
   membership_number INT
-  -- membership_start_date DATE,
-  -- membership_renewal DATE
   );
 
 CREATE TABLE classes (
@@ -31,6 +29,5 @@ CREATE TABLE sessions (
 CREATE TABLE reservations (
   id SERIAL PRIMARY KEY,
   member_id INT REFERENCES members(id),
-  gym_class_id INT REFERENCES classes(id)--,
-  -- session_id INT REFERENCES sessions(id)
+  gym_class_id INT REFERENCES classes(id)
 );

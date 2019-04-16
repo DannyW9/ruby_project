@@ -1,13 +1,11 @@
 require ('pry-byebug')
 require_relative('../models/member.rb')
 require_relative('../models/gym_class.rb')
-require_relative('../models/session.rb')
 require_relative('../models/reservation.rb')
 
 Reservation.delete_all()
 Member.delete_all()
 GymClass.delete_all()
-Session.delete_all()
 
 ################# MEMBERS #################
 
@@ -85,66 +83,32 @@ class4 = GymClass.new({
 
   class4.save()
 
-################ SESSIONS #################
-
-# session1 = Session.new({
-#   'class_time' => '09:00',
-#   'max_capacity' => '10'
-#   })
-#
-# session1.save()
-
-# session2 = Session.new({
-#   'class_time' => '12:00',
-#   'max_capacity' => '10'
-#   })
-#
-# session2.save()
-#
-# session3 = Session.new({
-#   'class_time' => '16:00',
-#   'max_capacity' => '12'
-#   })
-#
-# session3.save()
-#
-# session4 = Session.new({
-#   'class_time' => '19:00',
-#   'max_capacity' => '15'
-#   })
-#
-# session4.save()
-
 ################ RESERVATIONS #################
 
 reservation1 = Reservation.new({
   'member_id' => "#{member1.id}",
-  'gym_class_id' => "#{class1.id}"#,
-  # 'session_id' => "#{session1.id}"
+  'gym_class_id' => "#{class1.id}"
   })
 
 reservation1.save()
 
 reservation2 = Reservation.new({
   'member_id' => "#{member2.id}",
-  'gym_class_id' => "#{class2.id}"#,
-  # 'session_id' => "#{session2.id}"
+  'gym_class_id' => "#{class2.id}"
   })
 
 reservation2.save()
 
 reservation3 = Reservation.new({
   'member_id' => "#{member3.id}",
-  'gym_class_id' => "#{class3.id}"#,
-  # 'session_id' => "#{session3.id}"
+  'gym_class_id' => "#{class3.id}"
   })
 
 reservation3.save()
 
 reservation4 = Reservation.new({
   'member_id' => "#{member4.id}",
-  'gym_class_id' => "#{class3.id}"#,
-  # 'session_id' => "#{session4.id}"
+  'gym_class_id' => "#{class3.id}"
   })
 
 reservation4.save()
