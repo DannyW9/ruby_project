@@ -1,12 +1,10 @@
+/* NEW CLASS FORM */
+
 .new_class_form {
   margin-left: 100px;
   width: 30%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  /* background-color: #FAFAFA; */
-  /* color: black; */
 }
 
 .name, .instructor, .max_capacity, .class_time {
@@ -50,3 +48,49 @@
   color: white;
   font-size: 16px;
 }
+
+/* NEW MEMBER FORM */
+
+.new_member_form {
+  margin-left: 100px;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.first_name, .last_name, .membership_type {
+  display: flex;
+  flex-direction: column;
+}
+
+.new_member_form .memb_text {
+  width: 50%;
+  padding: 5px;
+}
+
+.new_member_form .memb_text {
+  background-color: #5D366D;
+  border: none;
+  border-bottom: 2px solid white;
+  color: white;
+  font-size: 16px;
+}
+
+.memb_text:focus {
+  outline-color: white;
+  border: 2px solid white;
+  font-size: 16px;
+}
+
+.memb_text::placeholder {
+  color: white;
+  font-size: 16px;
+}
+
+.new_member_form .membership_type{
+  font-size: 16px;
+}
+
+/* .new_member_form input[type=radio] {
+  margin-right: 10px;
+} */

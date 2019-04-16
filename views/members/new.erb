@@ -5,19 +5,21 @@
 <form action="/members" method="POST">
 
   <div class="first_name">
-    <label for="first-name">First Name:</label>
-    <input type="text" name="first_name" id="first-name" required>
+    <!-- <label for="first-name">First Name:</label> -->
+    <input class="memb_text" type="text" name="first_name" id="first-name" placeholder="First Name" required>
   </div>
 
   <div class="last_name">
-    <label for="last-name">Last Name:</label>
-    <input type="text" name="last_name" id="last-name" required>
+    <!-- <label for="last-name">Last Name:</label> -->
+    <input class="memb_text" type="text" name="last_name" id="last-name" placeholder="Second Name" required>
   </div>
 
   <div class="membership_type">
     <label for="membership-type">Select membership type:</label>
-    <input type="radio" name="membership_type" id="membership-type" value="Regular" checked> Regular
-    <input type="radio" name="membership_type" id="membership-type" value="Premium"> Premium
+    <div class="radio_inputs">
+      <input type="radio" name="membership_type" id="membership-type" value="Regular" checked> Regular
+      <input type="radio" name="membership_type" id="membership-type" value="Premium"> Premium
+    </div>
   </div>
 
   <div class="submit">
