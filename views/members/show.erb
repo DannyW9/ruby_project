@@ -1,19 +1,26 @@
 <h1><%= @member.full_name() %></h1>
 
-<p> Membership Type: <%= @member.membership_type %> </p>
+<div class="individual_member">
+<hr>
+  <p> Membership Type: <%= @member.membership_type %> </p>
+<hr>
+  <p>Classes attending:</p>
 
-<h3>Classes attending:</h3>
+  <ul>
+    <% @member.attending_classes.each do |gym_class| %>
+    <li><%= gym_class.name %> -> <%= gym_class.class_time %></li>
+    <% end %>
+  </ul>
+<hr>
+<div class="individual_member_buttons">
 
-<ul>
-  <% @member.attending_classes.each do |gym_class| %>
-  <li><%= gym_class.name %> -> <%= gym_class.class_time %></li>
-  <% end %>
-</ul>
+  <form action="/members/<%= @member.id %>/edit" method="get">
+    <input class="update_button" type="submit" value="Update Member Details">
+  </form>
 
-<form action="/members/<%= @member.id %>/edit" method="get">
-  <input type="submit" value="Update Member Details">
-</form>
+  <form action="/members/<%= @member.id %>/delete" method="post">
+    <input class="delete_button" type="submit" value="Remove Member">
+  </form>
+</div>
 
-<form action="/members/<%= @member.id %>/delete" method="post">
-  <input type="submit" value="Remove Member">
-</form>
+</div>

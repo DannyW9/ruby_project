@@ -1,55 +1,71 @@
-<h1><%= @class.name %></h1>
+<div class="individual_class">
+  <h1><%= @class.name %></h1>
+  <hr>
+  <p>Class Start Time --> <%= @class.class_time.slice(0..4) %></p>
+  <hr>
+  <p>Instructor --> <%= @class.instructor %></p>
+  <hr>
+  <!-- <p><%= @class.description %></p> -->
+  <p>Maximum Capacity --> <%= @class.max_capacity %></p>
+  <hr>
 
-<p>Class Start Time: <%= @class.class_time.slice(0..4) %></p>
-<p>Instructor: <%= @class.instructor %></p>
-<p>Description: <%= @class.description %></p>
-<p>Maximum Capacity: <%= @class.max_capacity %></p>
+  <p>Members Attending:</p>
 
-<h3>Members Attending:</h3>
+  <ul>
+    <% @class.members.each do |member| %>
+    <div class="name_and_remove">
+      <li><%= member.full_name() %></li>
+      <form action="/reservations/<%= @class.id %>/<%= member.id %>/delete" method="post">
+        <input class="remove" type="submit" value="Remove">
+      </form>
+    </div>
+    <% end %>
+  </ul>
 
-<ul>
-  <% @class.members.each do |member| %>
-  <li><%= member.full_name() %></li>
-  <form action="/reservations/<%= @class.id %>/<%= member.id %>/delete" method="post">
-    <input type="submit" value="Remove from Class">
-  <% end %>
-</ul>
+  <hr>
 
-<form action="/classes/<%= @class.id%>/edit" method="get">
-  <input type="submit" value="Edit Class Details">
-</form>
+  <p class="info">Book Member into Class</p>
 
-<form action="/reservations/<%= @class.id %>/delete" method="post">
-  <input type="submit" value="Remove All Reservations">
-</form>
+  <div class="book_member_info">
+    <form action="/reservations" method="post">
+      <!--Hidden input for passing through gym_class_id into the reservation  -->
+      <input type="hidden" name="gym_class_id" value="<%= @class.id %>">
 
-<form action="/classes/<%= @class.id %>/delete" method="post">
-  <input type="submit" value="Remove Class">
-</form>
+      <label for="member">Select a Member:</label>
+      <select name="member_id" id="member">
 
-<hr>
-
-<h2>Book Member into Class</h2>
-
-<form action="/reservations" method="post">
-<!--Hidden input for passing through gym_class_id into the reservation  -->
-<input type="hidden" name="gym_class_id" value="<%= @class.id %>">
-
-  <label for="member">Select a Member:</label>
-    <select name="member_id" id="member">
-
-      <% if @class.capacity_check == false %>
-        <option value="" selected disabled>This class is full!</option>
+        <% if @class.capacity_check == false %>
+          <option value="" selected disabled>This class is full!</option>
         <% else %>
 
-      <% @class.available_members.each do |member| %>
-        <option value="<%= member.id %>"><%= member.full_name() %></option>
+        <% @class.available_members.each do |member| %>
+          <option value="<%= member.id %>"><%= member.full_name() %></option>
         <% end %>
         <% end %>
-    </select>
-
-    <div class="submit">
-      <input type="submit" value="Create new booking">
+      </select>
+      <div class="book_member_button">
+        <div class="submit">
+          <input class="update_button" type="submit" value="Create new booking">
+        </div>
+      </form>
     </div>
+  </div>
 
-</form>
+  <hr>
+
+  <div class="individual_class_buttons">
+
+    <form action="/classes/<%= @class.id%>/edit" method="get">
+      <input class="update_button" type="submit" value="Update Class Details">
+    </form>
+
+    <form action="/reservations/<%= @class.id %>/delete" method="post">
+      <input class="delete_button" type="submit" value="Remove All Reservations">
+    </form>
+
+    <form action="/classes/<%= @class.id %>/delete" method="post">
+      <input class="delete_button" type="submit" value="Remove Class">
+    </form>
+
+  </div>
+  <hr>

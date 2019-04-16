@@ -13,7 +13,7 @@
 
   <div class="membership_type">
     <label for="membership-type">Change membership type:</label>
-    <% if @member.membership_type = "Premium" %>
+    <% if @member.membership_type == "Premium" %>
     <input type="radio" name="membership_type" id="membership-type" value="Regular"> Regular
     <input type="radio" name="membership_type" id="membership-type" value="Premium" checked> Premium
     <% else %>
@@ -23,7 +23,7 @@
   </div>
 
   <div class="submit">
-    <input type="submit" value="Update Member Details">
+    <input class="update_button" type="submit" value="Update Member Details">
   </div>
 
 </form>

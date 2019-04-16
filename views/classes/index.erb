@@ -2,8 +2,8 @@
 
 <% @classes.each do |gym_class| %>
 <div class="class_div">
-  <h3><%= gym_class.name %></h3>
-  <p>Class Start Time: <%= gym_class.class_time.slice(0..4) %></p>
+  <details>
+    <summary> <h3><%= gym_class.class_time.slice(0..4) %>: <%= gym_class.name %></h3> </summary>
   <p>Members attending (<%= gym_class.members_attending() %>/<%= gym_class.max_capacity %>):</p>
 
   <ul>
@@ -15,7 +15,7 @@
   <form action="/classes/<%= gym_class.id %>" method="get">
     <input class="details_button" type="submit" value="View More Details">
   </form>
-
+</details>
 </div>
 <hr>
 <% end %>

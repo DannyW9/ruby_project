@@ -53,6 +53,16 @@ class1 = GymClass.new({
 
 class1.save()
 
+class4 = GymClass.new({
+  'name' => 'Evening Yoga',
+  'description' => ' A restful, calming class including breathing, gentle flowing movements, passive and supported poses. This is a perfect beginning yoga class that is also appropriate for those working with injury, limited mobility, or who prefer a softer, gentler approach to yoga.',
+  'instructor' => 'Darth Vader',
+  'class_time' => '19:00',
+  'max_capacity' => '15'
+  })
+
+class4.save()
+
 class2 = GymClass.new({
   'name' => 'Bootcamp',
   'description' => 'This circuit training based class is designed to challenge your body and mind in a fun environment, all the while building strength and fitness through a variety of exercise stations.',
@@ -72,16 +82,6 @@ class3 = GymClass.new({
   })
 
 class3.save()
-
-class4 = GymClass.new({
-  'name' => 'Evening Yoga',
-  'description' => ' A restful, calming class including breathing, gentle flowing movements, passive and supported poses. This is a perfect beginning yoga class that is also appropriate for those working with injury, limited mobility, or who prefer a softer, gentler approach to yoga.',
-  'instructor' => 'Darth Vader',
-  'class_time' => '19:00',
-  'max_capacity' => '15'
-  })
-
-  class4.save()
 
 ################ RESERVATIONS #################
 

@@ -25,7 +25,7 @@ class GymClass
   end
 
   def self.all()
-    sql = "SELECT * FROM classes"
+    sql = "SELECT * FROM classes ORDER BY class_time ASC"
     results = SqlRunner.run(sql)
     return results.map{ |gym_class| GymClass.new(gym_class) }
   end

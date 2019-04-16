@@ -1,15 +1,17 @@
 <h1>Current Members List</h1>
 
- <% @members.each do |member| %>
- <div class="member_div">
-   <h3> <%= member.full_name() %></h3>
-   <p> Membership Type: <%= member.membership_type %> </p>
-
-   <form action="/members/<%= member.id %>" method="get">
+<% @members.each do |member| %>
+<div class="member_div">
+  <details>
+    <summary><h3> <%= member.full_name() %> </h3></summary>
+    <p> Membership Type: <%= member.membership_type %> </p>
+    <form action="/members/<%= member.id %>" method="get">
      <input class="details_button" type="submit" value="View More Details">
-   </form>
+    </form>
+  </details>
+</div>
+<hr>
 
 
- </div>
-  <hr>
+
  <% end %>
