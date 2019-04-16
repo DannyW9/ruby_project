@@ -1,4 +1,4 @@
-<h1>Members</h1>
+<h1>Current Members List</h1>
 
  <% @members.each do |member| %>
  <div class="member_div">
@@ -6,13 +6,10 @@
    <p> Membership Type: <%= member.membership_type %> </p>
 
    <form action="/members/<%= member.id %>" method="get">
-     <input type="submit" value="View More Details">
+     <input class="details_button" type="submit" value="View More Details">
    </form>
 
-   <form action="/members/<%= member.id %>/delete" method="post">
-     <input type="submit" value="Remove Member">
-   </form>
-  
+
  </div>
- <hr>
+  <hr>
  <% end %>
