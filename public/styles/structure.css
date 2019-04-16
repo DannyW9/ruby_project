@@ -31,10 +31,11 @@ h1 {
   margin-top: 40px;
   margin-left: 100px;
   margin-bottom: 30px;
+  color: #D7D9D8;
   /* text-align: center; */
 }
 
-.member_div, .class_div, .individual_member, .individual_class {
+.member_div, .class_div, .individual_member, .individual_class  {
   margin-left: 100px;
   width: 40%;
 }
@@ -104,6 +105,35 @@ h1 {
   width: 100%;
   margin-left: 0;
 }
+
+.info {
+  text-align: center;
+}
+
+.book_member_info {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+/* NEW MEMBER FORM */
+
+.new_member_form {
+  margin-left: 100px;
+  width: 40%;
+  font-size: 20px;
+}
+
+/* .new_member_form .add_button {
+  align-self: center;
+} */
+
+input {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+/* NEW CLASS FORM */
 
 
 /* NAVBAR */

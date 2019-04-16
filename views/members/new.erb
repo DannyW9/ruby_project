@@ -1,24 +1,27 @@
+<h1>Add New Member</h1>
+<hr>
 <div class="new_member_form">
+
 <form action="/members" method="POST">
 
   <div class="first_name">
     <label for="first-name">First Name:</label>
-    <input type="text" name="first_name" id="first-name">
+    <input type="text" name="first_name" id="first-name" required>
   </div>
 
   <div class="last_name">
     <label for="last-name">Last Name:</label>
-    <input type="text" name="last_name" id="last-name">
+    <input type="text" name="last_name" id="last-name" required>
   </div>
 
   <div class="membership_type">
-    <label for="membership-type">Select a membership type:</label>
-    <input type="radio" name="membership_type" id="membership-type" value="Regular"> Regular
+    <label for="membership-type">Select membership type:</label>
+    <input type="radio" name="membership_type" id="membership-type" value="Regular" checked> Regular
     <input type="radio" name="membership_type" id="membership-type" value="Premium"> Premium
   </div>
 
   <div class="submit">
-    <input type="submit" value="Create new member">
+    <input class="add_button" type="submit" value="Create new member">
   </div>
 
 </form>

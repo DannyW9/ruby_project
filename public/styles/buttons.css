@@ -14,7 +14,7 @@
   border-color: limegreen;
 }
 
-.update_button {
+.update_button, .add_button {
   background-color: #D7D9D8;
   text-transform: uppercase;
   color: green;
@@ -23,7 +23,7 @@
   border-radius: 6px;
 }
 
-.update_button:hover {
+.update_button:hover, .add_button:hover {
   color: white;
   background-color: limegreen;
   border-color: limegreen;
@@ -76,14 +76,4 @@
   display: flex;
   justify-content: center;
   margin-top: 10px;
-}
-
-.book_member_info {
-  display: flex;
-  justify-content: center;
-  margin-top: 5px;
-}
-
-.info {
-  text-align: center;
 }

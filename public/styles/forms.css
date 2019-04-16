@@ -1,0 +1,52 @@
+.new_class_form {
+  margin-left: 100px;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  /* background-color: #FAFAFA; */
+  /* color: black; */
+}
+
+.name, .instructor, .max_capacity, .class_time {
+  display: flex;
+  flex-direction: column;
+}
+
+.new_class_form input {
+  width: 50%;
+  padding: 5px;
+}
+
+.new_class_form .box {
+  background-color: #5D366D;
+  border: none;
+  border-bottom: 2px solid white;
+  color: white;
+  font-size: 16px;
+}
+
+.new_class_form .class_time input {
+  margin-top: 0px;
+  width: 25%;
+}
+
+.new_class_form .class_time label {
+  margin-left: 5px;
+}
+
+.new_class_form label {
+  font-size: 16px;
+}
+
+.box:focus {
+  outline-color: white;
+  border: 2px solid white;
+  font-size: 16px;
+}
+
+.box::placeholder {
+  color: white;
+  font-size: 16px;
+}

@@ -1,32 +1,29 @@
+<h1>Create New Class</h1>
+<hr>
 <div class="new_class_form">
   <form action="/classes" method="POST">
 
     <div class="name">
-      <label for="name">Class Name:</label>
-      <input type="text" name="name" id="name">
+      <label for="name"></label>
+      <input class="box" type="text" name="name" id="name" placeholder="New Class Name" required>
     </div>
 
     <div class="instructor">
-      <label for="instructor">Instructor:</label>
-      <input type="text" name="instructor" id="instructor">
+      <label for="instructor"></label>
+      <input class="box" type="text" name="instructor" id="instructor" placeholder="Instructor Name" required>
     </div>
 
     <div class="max_capacity">
-      <label for="max-capacity">Maximum Capacity:</label>
-      <input type="number" name="max_capacity" id="max-capacity">
+      <label for="max-capacity"></label>
+      <input class="box" type="number" name="max_capacity" id="max-capacity" placeholder="Maximum Capacity" required>
     </div>
 
     <div class="class_time">
       <label for="class-time">Select a Time Slot:</label>
-      <input type="time" name="class_time">
+      <input class="box" type="time" name="class_time" required>
     </div>
 
-    <div class="description">
-      <label for="description">Description:</label>
-      <textarea name="description" id="description" rows="8" cols="80">Insert Description:</textarea>
-    </div>
-
-    <input type="submit" value="Create New Class">
+    <input class="add_button" type="submit" value="Create New Class">
 
   </form>
 </div>
