@@ -5,7 +5,6 @@
   <hr>
   <p>Instructor --> <%= @class.instructor %></p>
   <hr>
-  <!-- <p><%= @class.description %></p> -->
   <p>Maximum Capacity --> <%= @class.max_capacity %></p>
   <hr>
 
@@ -16,7 +15,7 @@
     <div class="name_and_remove">
       <li><%= member.full_name() %></li>
       <form action="/reservations/<%= @class.id %>/<%= member.id %>/delete" method="post">
-        <input class="remove" type="submit" value="Remove">
+        <input class="remove" type="submit" value="&times;">
       </form>
     </div>
     <% end %>

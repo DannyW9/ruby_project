@@ -69,11 +69,26 @@
 .remove {
   color: white;
   background-color: red;
-  margin-left: 10px;
+  margin-left: 5px;
+  margin-top: 0px;
 }
 
 .book_member_button {
   display: flex;
   justify-content: center;
   margin-top: 10px;
+}
+
+.splash_page_buttons {
+  margin-left: 100px;
+  width: 40%;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.splash_page_buttons .update_button {
+  margin-left: 20px;
+  margin-right: 20px;
 }

@@ -32,7 +32,10 @@ h1 {
   margin-left: 100px;
   margin-bottom: 30px;
   color: #D7D9D8;
-  /* text-align: center; */
+}
+
+.splash_title {
+  margin-left: 150px;
 }
 
 .member_div, .class_div, .individual_member, .individual_class  {
@@ -99,6 +102,7 @@ h1 {
 
 .individual_class .name_and_remove {
   display: flex;
+
 }
 
 .individual_class hr {
@@ -115,26 +119,6 @@ h1 {
   justify-content: center;
   margin-top: 5px;
 }
-
-/* NEW MEMBER FORM */
-
-.new_member_form {
-  margin-left: 100px;
-  width: 40%;
-  font-size: 20px;
-}
-
-/* .new_member_form .add_button {
-  align-self: center;
-} */
-
-input {
-  margin-top: 10px;
-  margin-bottom: 20px;
-}
-
-/* NEW CLASS FORM */
-
 
 /* NAVBAR */
 

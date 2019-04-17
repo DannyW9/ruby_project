@@ -1,3 +1,28 @@
+input {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.text_input {
+  background-color: #5D366D;
+  border: none;
+  border-bottom: 2px solid white;
+  color: white;
+  font-size: 16px;
+  width: 50%;
+  padding: 5px;
+}
+
+.text_input:focus {
+  outline-color: white;
+  border: 2px solid white;
+  font-size: 16px;
+}
+
+.text_input::placeholder {
+  color: white;
+  font-size: 16px;
+}
 /* NEW CLASS FORM */
 
 .new_class_form {
@@ -12,41 +37,13 @@
   flex-direction: column;
 }
 
-.new_class_form input {
-  width: 50%;
-  padding: 5px;
-}
-
-.new_class_form .box {
-  background-color: #5D366D;
-  border: none;
-  border-bottom: 2px solid white;
-  color: white;
-  font-size: 16px;
-}
-
-.new_class_form .class_time input {
+.class_time input {
   margin-top: 0px;
   width: 25%;
 }
 
-.new_class_form .class_time label {
+.class_time label {
   margin-left: 5px;
-}
-
-.new_class_form label {
-  font-size: 16px;
-}
-
-.box:focus {
-  outline-color: white;
-  border: 2px solid white;
-  font-size: 16px;
-}
-
-.box::placeholder {
-  color: white;
-  font-size: 16px;
 }
 
 /* NEW MEMBER FORM */
@@ -63,34 +60,20 @@
   flex-direction: column;
 }
 
-.new_member_form .memb_text {
-  width: 50%;
-  padding: 5px;
+/* EDIT EXISTING MEMBER FORM */
+
+.edit_member_form {
+  margin-left: 100px;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
 }
 
-.new_member_form .memb_text {
-  background-color: #5D366D;
-  border: none;
-  border-bottom: 2px solid white;
-  color: white;
-  font-size: 16px;
-}
+/* EDIT EXISTING CLASS FORM */
 
-.memb_text:focus {
-  outline-color: white;
-  border: 2px solid white;
-  font-size: 16px;
+.edit_class_form {
+  margin-left: 100px;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
 }
-
-.memb_text::placeholder {
-  color: white;
-  font-size: 16px;
-}
-
-.new_member_form .membership_type{
-  font-size: 16px;
-}
-
-/* .new_member_form input[type=radio] {
-  margin-right: 10px;
-} */

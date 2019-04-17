@@ -1,14 +1,12 @@
 DROP TABLE reservations;
 DROP TABLE members;
 DROP TABLE classes;
-DROP TABLE sessions;
 
 CREATE TABLE members (
   id SERIAL PRIMARY KEY,
   first_name VARCHAR,
   last_name VARCHAR,
-  membership_type VARCHAR,
-  membership_number INT
+  membership_type VARCHAR
   );
 
 CREATE TABLE classes (
@@ -16,12 +14,6 @@ CREATE TABLE classes (
   name VARCHAR,
   description TEXT,
   instructor VARCHAR,
-  class_time TIME,
-  max_capacity INT
-  );
-
-CREATE TABLE sessions (
-  id SERIAL PRIMARY KEY,
   class_time TIME,
   max_capacity INT
   );
