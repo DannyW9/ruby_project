@@ -4,7 +4,7 @@ require_relative('gym_class.rb')
 class Member
 
   attr_reader :id
-  attr_accessor :first_name, :last_name, :membership_type, :membership_number
+  attr_accessor :first_name, :last_name, :membership_type
 
   def initialize(details)
     @id = details['id'].to_i if details['id']

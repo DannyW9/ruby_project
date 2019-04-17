@@ -12,7 +12,6 @@ CREATE TABLE members (
 CREATE TABLE classes (
   id SERIAL PRIMARY KEY,
   name VARCHAR,
-  description TEXT,
   instructor VARCHAR,
   class_time TIME,
   max_capacity INT

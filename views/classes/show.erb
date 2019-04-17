@@ -31,10 +31,15 @@
       <input type="hidden" name="gym_class_id" value="<%= @class.id %>">
 
       <label for="member">Select a Member:</label>
-      <select name="member_id" id="member">
+      <select name="member_id" id="member" required>
 
         <% if @class.capacity_check == false %>
           <option value="" selected disabled>This class is full!</option>
+        <% elsif @class.available_members.count() == 0 %>
+
+
+        <option value="" selected disabled>No available premium members!</option>
+
         <% else %>
 
         <% @class.available_members.each do |member| %>

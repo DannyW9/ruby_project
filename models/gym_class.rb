@@ -4,22 +4,21 @@ require_relative('../db/sql_runner.rb')
 class GymClass
 
   attr_reader :id
-  attr_accessor :name, :description, :instructor, :class_time, :max_capacity
+  attr_accessor :name, :instructor, :class_time, :max_capacity
 
   def initialize(details)
     @id = details['id'].to_i if details['id']
     @name = details['name']
-    @description = details['description']
     @instructor = details['instructor']
     @class_time = details['class_time']
     @max_capacity = details['max_capacity'].to_i
   end
 
   def save()
-    sql = "INSERT INTO classes (name, description, instructor, class_time, max_capacity)
-          VALUES ($1, $2, $3, $4, $5)
+    sql = "INSERT INTO classes (name, instructor, class_time, max_capacity)
+          VALUES ($1, $2, $3, $4)
           returning id"
-    values = [@name, @description, @instructor, @class_time, @max_capacity]
+    values = [@name, @instructor, @class_time, @max_capacity]
     gym_class = SqlRunner.run(sql, values)
     @id = gym_class[0]['id'].to_i
   end
@@ -56,10 +55,10 @@ class GymClass
 
   def update()
     sql = "UPDATE classes
-    SET (name, description, instructor, class_time, max_capacity)
-    = ($1, $2, $3, $4, $5)
-    WHERE id = $6"
-    values = [@name, @description, @instructor, @class_time, @max_capacity, @id]
+    SET (name, instructor, class_time, max_capacity)
+    = ($1, $2, $3, $4)
+    WHERE id = $5"
+    values = [@name, @instructor, @class_time, @max_capacity, @id]
     SqlRunner.run(sql, values)
   end
 
