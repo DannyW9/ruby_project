@@ -142,9 +142,9 @@ reservation6 = Reservation.new({
   'gym_class_id' => "#{class5.id}"
   })
 
-  ######## FULL CLASS #######
-
 reservation6.save()
+
+  ######## FULL CLASS #######
 
 reservation7 = Reservation.new({
   'member_id' => "#{member2.id}",
@@ -159,6 +159,27 @@ reservation8 = Reservation.new({
   })
 
 reservation8.save()
+
+reservation9 = Reservation.new({
+  'member_id' => "#{member5.id}",
+  'gym_class_id' => "#{class1.id}"
+  })
+
+reservation9.save()
+
+reservation10 = Reservation.new({
+  'member_id' => "#{member1.id}",
+  'gym_class_id' => "#{class2.id}"
+  })
+
+reservation10.save()
+
+reservation11 = Reservation.new({
+  'member_id' => "#{member3.id}",
+  'gym_class_id' => "#{class2.id}"
+  })
+
+reservation11.save()
 
 
 

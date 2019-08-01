@@ -32,21 +32,20 @@
 
       <label for="member">Select a Member:</label>
       <select name="member_id" id="member" required>
-
+        <!-- Capacity Check  -->
         <% if @class.capacity_check == false %>
           <option value="" selected disabled>This class is full!</option>
+        <!-- Check there are members to be selected -->
         <% elsif @class.available_members.count() == 0 %>
-
-
-        <option value="" selected disabled>No available premium members!</option>
-
+          <option value="" selected disabled>No available members!</option>
+        <!-- Check if the class is peak time, and pull either all members or only premium members not currently assigned to class -->
         <% else %>
-
-        <% @class.available_members.each do |member| %>
-          <option value="<%= member.id %>"><%= member.full_name() %></option>
-        <% end %>
+          <% @class.available_members.each do |member| %>
+            <option value="<%= member.id %>"><%= member.full_name() %></option>
+          <% end %>
         <% end %>
       </select>
+
       <div class="book_member_button">
         <div class="submit">
           <input class="update_button" type="submit" value="Create new booking">

@@ -100,13 +100,7 @@ class GymClass
     SqlRunner.run(sql, values)
   end
 
-  def peak_time()
-    if ["07:00:00", "08:00:00", "09:00:00", "17:00:00", "18:00:00", "19:00:00", "20:00:00"].include?(@class_time)
-      return true
-    else
-      return false
-    end
-  end
+  ############### CAPACITY CHECK EXTENSION ###############
 
   def members_attending()
     results = self.members()
@@ -121,6 +115,16 @@ class GymClass
     end
   end
 
+  ############ PREMIUM MEMBERS FOR PEAK TIME CLASSES EXTENSION ############
+
+  def peak_time()
+    if ["07:00:00", "08:00:00", "09:00:00", "17:00:00", "18:00:00", "19:00:00", "20:00:00"].include?(@class_time)
+      return true
+    else
+      return false
+    end
+  end
+
   def all_available_members
     sql = "SELECT * FROM members WHERE id NOT IN (SELECT member_id FROM reservations WHERE gym_class_id = $1)"
     values = [@id]
@@ -129,7 +133,7 @@ class GymClass
   end
 
   def available_premium_members()
-    sql = "SELECT * FROM members WHERE id NOT IN (SELECT member_id FROM reservations WHERE gym_class_id = $1) and membership_type = $2"
+    sql = "SELECT * FROM members WHERE id NOT IN (SELECT member_id FROM reservations WHERE gym_class_id = $1) AND membership_type = $2"
     values = [@id, "Premium"]
     results = SqlRunner.run(sql, values)
     return results.map {|member| Member.new(member)}
